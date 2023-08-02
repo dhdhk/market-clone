@@ -1,0 +1,49 @@
+/*헤더바*/
+header {
+  border-bottom: 1px solid #ededef;
+  margin-top: 10px;
+}
+/*인포바*/
+.info-bar {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px 0 10px;
+}
+.info-bar_icons img {
+  width: 15px;
+}
+.info-bar_time {
+  font-size: 14px;
+  font-weight: bold;
+}
+/*메뉴바*/
+.menu-bar {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.menu-bar_location {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  padding-left: 10px;
+}
+.menu-bar_location img {
+  width: 20px;
+}
+.menu-bar_location_icon {
+  padding-top: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menu-bar_icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menu-bar_icons img {
+  width: 20px;
+  margin-right: 10px;
+}
