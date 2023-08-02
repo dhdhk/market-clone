@@ -36,7 +36,7 @@ footer {
 .footer-icons_img {
   width: 20px;
 }
-.footer-icons_img:hover {
+.footer-icons:hover img {
   animation: 2s icons-moving;
 }
 .footer-icons_desc {
