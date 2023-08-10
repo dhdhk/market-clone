@@ -6,6 +6,7 @@ from fastapi_login import LoginManager
 from fastapi_login.exceptions import InvalidCredentialsException
 from typing import Annotated
 import sqlite3
+# import hashlib
 
 con = sqlite3.connect('db.db',check_same_thread=False)
 cur = con.cursor()
@@ -98,11 +99,16 @@ def signup(id:Annotated[str,Form()],
            password:Annotated[str,Form()],
            name:Annotated[str,Form()],
            email:Annotated[str,Form()]):
+    # hash_object = hashlib.sha256(password.encode())
+    # hex_password = hash_object.hexdigest()
+    
+    
     cur.execute(f"""
                 INSERT INTO users(id, name, email, password)
                 VALUES ('{id}','{name}','{email}','{password}')
                 """)
     con.commit()
+    print(password)
     return '200'
     
 
