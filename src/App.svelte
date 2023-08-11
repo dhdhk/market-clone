@@ -4,8 +4,8 @@
   import NotFound from "./pages/NotFound.svelte";
   import Signup from "./pages/Signup.svelte";
   import Write from "./pages/Write.svelte";
-  import "./css/body.css";
   import Router from "svelte-spa-router";
+  import "./css/body.css";
 
   const routes = {
     "/": Main,
