@@ -1,27 +1,46 @@
-<form id="signup-form" action="/signup" method="POST">
-  <div>회원가입</div>
-  <div>
-    <label for="id">아이디</label>
-    <input type="text" name="id" id="id" required />
-  </div>
-  <div>
-    <label for="password">패스워드</label>
-    <input type="password" name="password" id="password" required />
-  </div>
-  <div>
-    <label for="password2">패스워드확인</label>
-    <input type="password" name="password2" id="password2" required />
-  </div>
-  <div>
-    <label for="name">이름</label>
-    <input type="text" name="name" id="name" required />
-  </div>
-  <div>
-    <label for="email">이메일</label>
-    <input type="email" name="email" id="email" required />
-  </div>
-  <div>
-    <button type="submit">회원가입</button>
-  </div>
-  <div id="info" />
-</form>
+<script>
+  import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+  import { user$ } from "../store";
+  const provider = new GoogleAuthProvider();
+  const auth = getAuth();
+  const loginWithGoogle = async () => {
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+      user$.set(user);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+</script>
+
+<div>
+  {#if $user$}
+    <div>{$user$?.displayName} 로그인됨</div>
+  {/if}
+  <div>로그인하기</div>
+  <button class="login-btn" on:click={loginWithGoogle}>
+    <img
+      src="https://w7.pngwing.com/pngs/326/85/png-transparent-google-logo-google-text-trademark-logo-thumbnail.png"
+      alt=""
+      class="google-img"
+    />
+    <div>Google로 시작하기</div>
+    <div />
+  </button>
+</div>
+
+<style>
+  .login-btn {
+    width: 200px;
+    height: 50px;
+    border: 1px solid gray;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 3px;
+  }
+  .google-img {
+    width: 20px;
+  }
+</style>

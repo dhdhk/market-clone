@@ -6,17 +6,26 @@
   import Write from "./pages/Write.svelte";
   import Router from "svelte-spa-router";
   import "./css/body.css";
+  import { GoogleAuthProvider } from "firebase/auth";
+
+  const provider = new GoogleAuthProvider();
+  provider.addScope("https://www.googleapis.com/auth/contacts.readonly");
+
+  let login = false;
 
   const routes = {
     "/": Main,
-    "/login": Login,
     "/signup": Signup,
     "/write": Write,
     "*": NotFound,
   };
 </script>
 
-<Router {routes} />
+{#if !login}
+  <Login />
+{:else}
+  <Router {routes} />
+{/if}
 
 <style>
   div {
