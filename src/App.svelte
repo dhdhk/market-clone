@@ -48,7 +48,4 @@
 {/if}
 
 <style>
-  div {
-    color: blue;
-  }
 </style>
