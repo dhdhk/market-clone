@@ -4,14 +4,13 @@ import { getDatabase } from "firebase/database";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCD-UTc-qFu_XZ3t6BkOaBYUOWZOc_2WtM",
-  authDomain: "carrot-market-7016b.firebaseapp.com",
-  databaseURL:
-    "https://carrot-market-7016b-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "carrot-market-7016b",
-  storageBucket: "carrot-market-7016b.appspot.com",
-  messagingSenderId: "950773668720",
-  appId: "1:950773668720:web:42077e0dfba16e97c28db5",
+  apiKey: import.meta.env.VITE_APP_KEY,
+  authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+  databaseURL: import.meta.env.VITE_DATABASEURL,
+  projectId: import.meta.env.VITE_PROJECTID,
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_APPID,
 };
 
 // Initialize Firebase
